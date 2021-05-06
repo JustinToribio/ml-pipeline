@@ -47,8 +47,8 @@ def train_model(name, x_train, y_train, x_test, y_test, out_dir):
     # Define the model with selected hyperparameters
     model_1 = XGBRegressor(n_estimators=1000, learning_rate=0.05)
     
-    # Train the model, stopping when there's no more improvement in
-    # the validation loss 
+    # Fit the model on the training data, stopping when there's no more
+    # improvement in the validation loss 
     model_1.fit(x_train, y_train, early_stopping_rounds=5,
                 eval_set=[(x_valid, y_valid)], verbose=False)
 
