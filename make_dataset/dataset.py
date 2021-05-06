@@ -27,6 +27,19 @@ def _save_datasets(X_train, X_test, y_train, y_test, outdir: Path):
 @click.option('--in-csv')
 @click.option('--out-dir')
 def make_datasets(in_csv, out_dir):
+    """Create train and test datasets from a csv and save them to disk.
+
+    Parameters
+    ----------
+    in_csv: str
+        file path to the input csv file.
+    out_dir: str
+        directory where files should be saved to.
+
+    Returns
+    -------
+    None
+    """
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
