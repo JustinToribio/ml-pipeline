@@ -110,3 +110,34 @@ class TrainModel(DockerTask):
         return luigi.LocalTarget(
             path=str(Path(self.out_dir) / f'{self.fname}.json')
         )
+
+
+class EvaluateModel(DockerTask):
+    """Pipeline task to evaluate the ML model and output a full report."""
+
+    out_dir = luigi.Parameter(default='/usr/share/data/reports')
+
+    @property
+    def image(self):
+        return f'code-challenge/evaluate-model:{VERSION}'
+
+    def requires(self):
+        return [
+            MakeDatasets(),
+            TrainModel(),
+        ]
+
+    @property
+    def command(self):
+        return [
+            './evaluate_model.sh',
+            self.out_dir,
+            self.input()[1].path,
+            self.input()[0].path.replace('.SUCCESS', 'X_test.pkl'),
+            self.input()[0].path.replace('.SUCCESS', 'y_test.pkl'),
+        ]
+
+    def output(self):
+        return luigi.LocalTarget(
+            path=str(Path(self.out_dir) / '.SUCCESS')
+        )
