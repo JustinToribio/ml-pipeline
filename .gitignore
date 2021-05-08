@@ -22,6 +22,3 @@ data_root/**/*.json
 data_root/**/*.parquet
 data_root/**/*.SUCCESS
 data_root/reports/
-
-# reference folder
-reference/
