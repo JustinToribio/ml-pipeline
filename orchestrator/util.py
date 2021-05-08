@@ -350,6 +350,11 @@ class ContainerTask(luigi.Task):
         """Actually submit and run task as a container."""
         try:
             self._run_and_track_task()
+
+            # # Uncomment to save .log files to orchestrator directory
+            # with open(f'{self.name}.log', 'w') as f:
+            #     for item in self._log:
+            #         f.write("%s\n" % item)
         finally:
             if self._container:
                 self._client.stop_container(self._container)

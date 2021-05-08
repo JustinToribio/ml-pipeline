@@ -1,14 +1,15 @@
 import click
-# import dask.dataframe as dd
+import logging
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-# from distributed import Client
 from pathlib import Path
 
+logging.basicConfig(level=logging.INFO)
 
 def _save_datasets(X_train, X_test, y_train, y_test, outdir: Path):
     """Save data sets into nice directory structure and write SUCCESS flag."""
+
     out_X_train = outdir / 'X_train.pkl/'
     out_X_test = outdir / 'X_test.pkl/'
     out_y_train = outdir / 'y_train.pkl/'
@@ -40,36 +41,15 @@ def make_datasets(in_csv, out_dir):
     -------
     None
     """
+    log = logging.getLogger('make-datasets')
+
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-
-    # Connect to the dask cluster
-    # c = Client('dask-scheduler:8786')
-
-    # load data as a dask Dataframe if you have trouble with dask
-    # please fall back to pandas or numpy
-    # ddf = dd.read_csv(in_csv, blocksize=1e6)
-
-    # we set the index so we can properly execute loc below
-    # ddf = ddf.set_index('Unnamed: 0')
-
-    # trigger computation
-    # n_samples = len(ddf)
-
-    # TODO: implement proper dataset creation here
-    # http://docs.dask.org/en/latest/dataframe-api.html
-
-    # split dataset into train test feel free to adjust test percentage
-    # idx = np.arange(n_samples)
-    # test_idx = idx[:n_samples // 10]
-    # test = ddf.loc[test_idx]
-
-    # train_idx = idx[n_samples // 10:]
-    # train = ddf.loc[train_idx]
-
+    
+    log.info('Making datasets')
+    log.info(f'Will write to {out_dir}')
     
     # Pandas Implementation
-
     # Read the data
     X = pd.read_csv(in_csv, index_col=0)
 
@@ -109,6 +89,8 @@ def make_datasets(in_csv, out_dir):
 
     # Save the datasets
     _save_datasets(X_train, X_valid, y_train, y_valid, out_dir)
+
+    log.info('Making datasets complete')
 
 
 if __name__ == '__main__':

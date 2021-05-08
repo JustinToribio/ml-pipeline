@@ -39,6 +39,7 @@ def download_data(name, url, out_dir):
 
     urllib.request.urlretrieve(url, out_path)
 
+    log.info('Downloading dataset complete')
 
 if __name__ == '__main__':
     download_data()

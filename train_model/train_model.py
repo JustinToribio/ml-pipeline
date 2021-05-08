@@ -1,9 +1,11 @@
 from pathlib import Path
 
 import click
+import logging
 import pandas as pd
 from xgboost import XGBRegressor
 
+logging.basicConfig(level=logging.INFO)
 
 @click.command()
 @click.option('--name')
@@ -34,9 +36,14 @@ def train_model(name, x_train, y_train, x_test, y_test, out_dir):
     -------
     None
     """
+    log = logging.getLogger('train-model')
+    
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f'{name}.json'
+
+    log.info('Training model')
+    log.info(f'Will write to {out_dir}')
 
     # Read the data
     x_train = pd.read_pickle(x_train)
@@ -54,6 +61,8 @@ def train_model(name, x_train, y_train, x_test, y_test, out_dir):
 
     # Save the model
     model_1.save_model(out_path)
+
+    log.info('Training model complete')
 
 
 if __name__ == '__main__':
