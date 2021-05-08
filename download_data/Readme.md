@@ -1,4 +1,4 @@
-# Download Data task
+# Download Data Task
 
 This script will download the data and place it on local disk.
 
