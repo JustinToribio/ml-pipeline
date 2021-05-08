@@ -31,7 +31,7 @@ Options: positional (without flags) in the order below
 
 The output in the reports (calculations and plots) will automatically change when the pipeline is run with different inputs (i.e. different data, parameters etc...).
 
-This task will produce the same report in 3 different formats in the `data_root/reports` directory: a pdf, html file and executed Jupyter Notebook.
+This task will produce the model evaluation report in 3 different formats in the `data_root/reports` directory: a pdf, html file and executed Jupyter Notebook.
 
 The pdf and html reports are cleaner as they have code cells hidden that aren't necessary for the reader to view.
 
