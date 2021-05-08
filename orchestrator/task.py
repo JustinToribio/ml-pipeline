@@ -56,7 +56,7 @@ class DownloadData(DockerTask):
 
 
 class MakeDatasets(DockerTask):
-    """Pipeline task to make train and test datasets ready for ML model."""
+    """Pipeline task to make train and test datasets ready for the ML model."""
     
     out_dir = luigi.Parameter(default='/usr/share/data/datasets/')
 
