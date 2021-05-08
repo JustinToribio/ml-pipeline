@@ -1,0 +1,3 @@
+INFO:train-model:Training model
+INFO:train-model:Will write to /usr/share/data/model
+INFO:train-model:Training model complete
