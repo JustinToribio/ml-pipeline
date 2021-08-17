@@ -32,6 +32,7 @@ Make sure the parent folder is named ` ml-pipeline-main`, which should be the de
 
 
 ## Execute the commands
+
 Make sure Docker is running on your local machine and then execute all of the following commands from the parent directory of this repository.
 
 Build the task images:
@@ -46,12 +47,26 @@ After execution is complete, shut down the pipeline:
 
 `./docker-clean.sh`
 
-
-
 # Output
-## Model evaluation report
-The final task of this pipeline will automatically produce the model evaluation report in 3 different formats in the `data_root/reports` directory: a pdf, html file and executed Jupyter Notebook.
+
+The pipeline will place all generated output into the following newly created directories:
+
+## `data_root/raw`
+
+The raw downloaded csv dataset of 10,000 different wines.
+
+## `data_root/datasets`
+
+The processed datasets, split into training and test sets.
+
+## `data_root/model`
+
+The trained machine learning model.
+
+## `data_root/reports`
+
+The dynamic model evaluation report in 3 different formats: a pdf, html file and executed Jupyter Notebook.
 
 The output in the reports (calculations and plots) will automatically change when the pipeline is run with different inputs (i.e. different data, parameters etc...).
 
-The html file produces the best rendering and formatting.
+The html file, opened in a browser, produces the best rendering and formatting.
