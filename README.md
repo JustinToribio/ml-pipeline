@@ -26,9 +26,13 @@ France|Packed with fruit and crisp acidity, this is a bright, light and perfumed
 
 # Running the pipeline
 
+## Download this repo to your local machine.  
+
+Make sure the parent folder is named ` ml-pipeline-main`, which should be the default name given when downloading this repo from GitHub.
 
 
-Execute all of the following commands from the parent directory of this repository.
+## Execute the commands
+Make sure Docker is running on your local machine and then execute all of the following commands from the parent directory of this repository.
 
 Build the task images:
 
@@ -36,7 +40,12 @@ Build the task images:
 
 Execute the pipeline: 
 
-`docker-compose up orchestrator` 
+`docker-compose up orchestrator`
+
+After execution is complete, shut down the pipeline:
+
+`./docker-clean.sh`
+
 
 
 # Output
