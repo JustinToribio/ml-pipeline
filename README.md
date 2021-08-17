@@ -1,6 +1,6 @@
 # Executing a complete machine learning pipeline
 
-This project will execute a complete machine learning pipeline with Docker Compose and Luigi.  With just 2 commands, the full pipeline will download the data, process it, train a gradient boosting machine with XGBoost and generate a dynamic evaluation report that communicates the model’s effectiveness and suitability for a non-technical audience.
+This project will execute a complete machine learning pipeline with Docker Compose and Luigi.  With just 2 commands that will work on any system that can run Docker, the full pipeline will download the data, process it, train a gradient boosting machine with XGBoost and generate a dynamic evaluation report that communicates the model’s effectiveness and suitability for a non-technical audience.
 
 # Requirements
 
@@ -11,7 +11,7 @@ You will need Docker and Docker Compose to run this project:
 
 # Context
 
-The objective of the pipeline is to train and evaluate a wine rating prediction machine learning model.  
+The objective of the pipeline is to train and evaluate a wine rating prediction machine learning model, from beginning to end. 
 
 The pipeline will download a dataset of 10,000 different wines, which includes various qualitative and quantitative attributes of the wines, including the wines' ratings ("points").
 
@@ -26,7 +26,7 @@ France|Packed with fruit and crisp acidity, this is a bright, light and perfumed
 
 # Running the pipeline
 
-## Download this repo to your local machine.  
+## Download this repo to your local machine  
 
 Make sure the parent folder is named ` ml-pipeline-main`, which should be the default name given when downloading this repo from GitHub.
 
@@ -67,6 +67,6 @@ The trained machine learning model.
 
 The dynamic model evaluation report in 3 different formats: a pdf, html file and executed Jupyter Notebook.
 
-The output in the reports (calculations and plots) will automatically change when the pipeline is run with different inputs (i.e. different data, parameters etc...).
+The output in the reports (calculations and plots) will automatically update when the pipeline is run with different inputs (i.e. different data, parameters etc...).
 
 The html file, opened in a browser, produces the best rendering and formatting.
